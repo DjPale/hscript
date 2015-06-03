@@ -665,6 +665,10 @@ class Parser {
 				}
 			}
 			mk(ESwitch(e, cases, def), p1, tokenMax);
+		case "class":
+			if (!allowTypes) unexpected(TId(id));
+			var tk = token();
+			parseExpr();
 		default:
 			null;
 		}
