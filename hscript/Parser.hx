@@ -669,6 +669,12 @@ class Parser {
 			if (!allowTypes) unexpected(TId(id));
 			var tk = token();
 			parseExpr();
+		case "import":
+			if (!allowTypes) unexpected(TId(id));
+			var tk = token();
+			while(tk != null && tk != TSemicolon) tk = token();
+
+			parseExpr();
 		default:
 			null;
 		}
